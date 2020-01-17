@@ -9,3 +9,7 @@ body {
   padding: 0;
   height: 90vh;
 }
+
+button, a {
+  outline: none;
+}
