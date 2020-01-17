@@ -21,7 +21,6 @@ public class FlashCardService {
 		return flashCardRepo.insert(flashCard);
 	}
 	
-
 	//	Removes a flash card by id from the database
 	public void removeFlashCard(String id)
 	{
@@ -32,5 +31,10 @@ public class FlashCardService {
 	public List<FlashCard> getAllFlashCards()
 	{
 		return flashCardRepo.findAll();
+	}
+	
+	public List<FlashCard> getFlashCardsByUserId(String userId)
+	{
+		return flashCardRepo.findByUserId(userId);
 	}
 }
