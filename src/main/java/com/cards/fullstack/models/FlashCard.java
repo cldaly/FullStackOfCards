@@ -13,13 +13,24 @@ public class FlashCard {
 	private String resourceName;
 	private String resourceLink;
 		
-	public FlashCard(String question, String answer, String resourceName, String resourceLink) {
+	private String userId;
+	
+	public FlashCard(String question, String answer, String resourceName, String resourceLink, String userId) {
 		this.question = question;
 		this.answer = answer;
 		this.resourceName = resourceName;
 		this.resourceLink = resourceLink;
+		this.userId = userId;
 	}
 	
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
 	public String getId() {
 		return id;
 	}
