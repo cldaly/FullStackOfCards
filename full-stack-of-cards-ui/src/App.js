@@ -10,13 +10,34 @@ class App extends React.Component {
     constructor(){
         super();
         this.state = {
-            isLoggedIn:false
+            isLoggedIn:true
         }
     }
+
+    componentDidMount(){
+        if (localStorage.getItem('user-id')) {
+            this.setState({isLoggedIn:true});
+        } else {
+            this.setState({isLoggedIn:false});
+        }
+    }
+
+    completeLogin = (id) => {
+        this.setState({isLoggedIn:true}, () => {
+            localStorage.setItem('user-id', id)
+        })
+    }
+
+    logout = () => {
+        this.setState({isLoggedIn:false}, () => {
+            localStorage.clear();
+        })
+    }
+
     render() {
         return (
         <div className='main'>
-            <Header />
+            <Header isLoggedIn={this.state.isLoggedIn} logout={this.logout} />
             <Switch>
                 <Route exact path='/'>
                     <Link to='/cards'>
@@ -27,7 +48,7 @@ class App extends React.Component {
                     <Cards />
                 </Route>
                 <Route path='/user'>
-                    <UserPage />
+                    <UserPage completeLogin={this.completeLogin} isLoggedIn={this.state.isLoggedIn} />
                 </Route>
                 <Route path='/*'>
                     <Redirect to='/' />

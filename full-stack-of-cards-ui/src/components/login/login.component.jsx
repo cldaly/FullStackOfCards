@@ -50,7 +50,9 @@ class Login extends React.Component {
             .then(data => {
                 return JSON.parse(data.request.response);
             }).then(user => {
-                console.log(user)
+                if (user) {
+                    this.props.completeLogin(user.id);
+                }
             }).catch(() => {
                 this.setState({errorMessage:'Invalid Username or Password', loading:false })
             })
@@ -63,18 +65,17 @@ class Login extends React.Component {
         const {usernameError, passwordError, submitted, loading, errorMessage} = this.state;
         return(
             <div className='login'>
-                <h2>Welcome to Musix App</h2>
                 {errorMessage !== '' && <Alert message={errorMessage} closeAlert={this.closeAlert} />}
                 <div className='login-page'>
                     <h4>Login</h4>
-                    <div className="loginForm" autoComplete='off' noValidate>
+                    <div className="loginForm">
                         <div className='form-group'>
                             <label htmlFor='username'>Username</label>
-                            <input id='username' type='text' />
+                            <input  autoComplete='off' id='username' type='text' />
                         </div>
                         <div className='form-group'>
                             <label htmlFor='password'>Password</label>
-                            <input id='password' type='password' />
+                            <input  id='password' type='password' />
                         </div>
                         <button id='login-btn' onClick={this.validate}>
                             {loading && <span className="loading"></span>}
@@ -86,15 +87,5 @@ class Login extends React.Component {
         )
     }
 }
-class User {
-    userId;
-    email;
-    profileImg;
-    constructor(email){
-        this.email = email;
-        this.token = undefined;
-    }
-}
-
 
 export default Login;

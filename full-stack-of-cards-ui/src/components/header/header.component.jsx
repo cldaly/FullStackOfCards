@@ -2,15 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './header.styles.css';
 
-const Header = () => {
+const Header = ({ isLoggedIn, logout }) => {
 
     return (
         <div className="header">
             <h2><Link to='/'>Full Stack of Cards</Link></h2>
-            <nav>
-                <li><Link to='/user/login'>Login</Link></li>
-                <li><Link to='/user/register'>Register</Link></li>
-            </nav>
+            {isLoggedIn ? (
+                <nav>
+                    <li><Link to='/user/addcard'>Add Card</Link></li>
+                    <li><Link to='/' onClick={logout}>Logout</Link></li>
+                </nav>
+            ) : (
+                <nav>
+                    <li><Link to='/user/login'>Login</Link></li>
+                </nav>
+            )}
         </div>
     )
 }

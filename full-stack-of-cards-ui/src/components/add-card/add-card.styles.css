@@ -1,68 +1,62 @@
-.login {
-    margin-top: 50px;
-}
-
-.login-page .loginForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.login-page {
-    color: #000;
-    margin: 25px auto 0;
-    background-color: #fefefe;
-    border-radius: 10px;
-    border: 1px solid #777;
+.new-card {
     width: 450px;
-    padding: 20px 20px;
+    padding: 20px;
+    border: 1px solid #555;
+    border-radius: 15px;
+    color: rgb(15, 21, 27);
+    background-color: #faf3f0;
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: 10px 10px 40px rgba(0,0,0,0.08), 2px 2px 8px rgba(0,0,0,0.2);
 }
 
-.login-page h4 {
-    font-size: 1.2em;
+.new-card h4 {
+    font-size: 1.3em;
     font-weight: 400;
     letter-spacing: 0.05em;
-    margin: 10px 40px;
+    margin: 10px 40px 20px;
     padding-bottom: 10px;
     color: #555;
     border-bottom: 1px solid #ccc;
     text-align: left;
 }
 
-.login-page .form-group {
-    font-size: 0.95em;
-    width: 70%;
-    height: 60px;
+.new-card-form {
+    margin: 10px 40px;
+}
+
+.new-card-form .form-group {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
 }
 
-.login-page .form-group label {
-    font-size: 1.1em;
-    width: 30%;
-    text-align: right;
-    padding-right: 10px;
+.new-card-form .form-group label {
+    text-align: left;
+    padding-bottom: 10px;
+    color: #333;
 }
 
-.login-page .form-group input {
-    width: 70%;
+.new-card-form .card-field {
+    width: 100%;
+    border: 1px solid #ddd;
     padding: 5px;
-    font-size: 0.9em;
 }
 
-.login-page .form-group input:focus {
-    outline: none;
+.new-card-form input.card-field {
+    font-size: 0.8em;
 }
 
-button#login-btn {
+button#new-btn {
     cursor: pointer;
     color: #18412a;
     transition: 0.1s linear;
     background-color: #def8e9;
     border:1px solid #18412a;
     border-radius: 6px;
-    margin: 15px auto;
-    font-size: 1.5em;
+    margin: 25px auto 10px;
+    font-size: 1.1em;
     padding: 5px 15px;
     display: flex;
     flex-direction: row;
@@ -71,15 +65,15 @@ button#login-btn {
     transition: 0.05s linear;
 }
 
-button#login-btn:hover {
+button#new-btn:hover {
     background-color: #b3eccc;
     color: #0c2718;
     border:1px solid #0c2718;
-    transform: translateY(-1px);
+    transform: translateY(2px);
     transform: scale(1.05)
 }
 
-button#login-btn:active {
+button#new-btn:active {
     transform: scale(1);
 }
 
