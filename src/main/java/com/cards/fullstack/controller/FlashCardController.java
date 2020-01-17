@@ -37,7 +37,7 @@ public class FlashCardController {
 	public ResponseEntity<FlashCard> addCards(@RequestBody FlashCard flashCard)
 	{
 		flashCardService.addFlashCard(flashCard);
-		return new ResponseEntity<FlashCard>(flashCard, HttpStatus.OK);
+		return new ResponseEntity<FlashCard>(flashCard, HttpStatus.OK); 
 	}
 		
 	@DeleteMapping("/removeCard/{id}")
