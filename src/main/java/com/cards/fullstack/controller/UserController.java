@@ -3,10 +3,13 @@ package com.cards.fullstack.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.security.crypto.bcrypt.*;
@@ -17,6 +20,7 @@ import com.cards.fullstack.service.UserService;
 import java.util.*;
 
 @RestController
+@CrossOrigin(origins="http://localhost:3000")
 @RequestMapping("/users")
 public class UserController {
 	
@@ -24,23 +28,24 @@ public class UserController {
 	UserService userService;
 	
 	@PostMapping("/register")
-	public ResponseEntity<User> register(String username, String password)
+	public ResponseEntity<User> register(@RequestBody User user)
 	{		
-		if(userService.getAllUserByName(username).size() == 0)
-			return new ResponseEntity<User>(userService.addUser(username, password), HttpStatus.OK);
+		if(userService.getAllUserByName(user.getUsername()).size() == 0)
+			return new ResponseEntity<User>(userService.addUser(user.getUsername(), user.getPassword()), HttpStatus.OK);
 		
 		return null;		
 	}
 	
 	@GetMapping("/login")
-	public ResponseEntity<User> login(String username, String password)
+	@ResponseBody
+	public ResponseEntity<User> login(@RequestBody User user)
 	{
 		//	Cycle through users with specified name
-		for(User user : userService.getAllUserByName(username))
+		for(User sUser : userService.getAllUserByName(user.getUsername()))
 		{
 			//	Check if any users match the password
-			if(BCrypt.checkpw(password, user.getPassword()))
-				return new ResponseEntity<User>(user, HttpStatus.OK);
+			if(BCrypt.checkpw(user.getPassword(), sUser.getPassword()))
+				return new ResponseEntity<User>(sUser, HttpStatus.OK);
 		}
 		//	Return null is user is not found
 		return null;
