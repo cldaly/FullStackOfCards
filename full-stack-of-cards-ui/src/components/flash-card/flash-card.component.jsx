@@ -5,7 +5,7 @@ const FlashCard = ({flashCard, show, next}) => {
 
     return(
         <div className='card'>
-            <h3>{flashCard.question}</h3>
+            <h3>{flashCard.question}</h3>            
             {!flashCard.showAnswer && <button onClick={show} className='show-answer'>Show Answer</button>}
             {flashCard.showAnswer && 
             <div className="card-details">

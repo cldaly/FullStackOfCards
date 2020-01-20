@@ -1,0 +1,9 @@
+.user-cards {
+    display:flex;
+    flex-wrap: wrap;
+    width: 100%;    
+}
+
+.user-cards  > * {
+    width: 20%;
+}
