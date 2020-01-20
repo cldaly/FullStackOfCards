@@ -1,5 +1,5 @@
 import React from 'react'
-import UserCard from '../components/user-card/user-card.component'
+import UserCard from '../user-card/user-card.component'
 import Axios from 'axios'
 import './user-cards.styles.css'
 
