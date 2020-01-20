@@ -6,7 +6,7 @@ export class Card {
     resourceLink;
     showAnswer;
 
-    constructor(id, question,answer,resourceName,resourceLink){
+    constructor(id, question,answer,resourceName,resourceLink) {
         this.id = id;
         this.question = question;
         this.answer = answer;
