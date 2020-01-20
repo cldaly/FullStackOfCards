@@ -10,7 +10,8 @@ class UserCards extends React.Component
         super();
         this.state = {
             cards : [],
-            count : 0
+            count : 0,
+            searchField: ''
         }           
     }
 
@@ -38,11 +39,19 @@ class UserCards extends React.Component
         //this.setState({count : this.state.count - 1})
     }
 
+    handleChange = (e) => {
+        this.setState({searchField:e.target.value})
+    }
+
     render() {        
+        let filteredCards = this.state.cards.filter(card => {
+            return card.question.toLowerCase().includes(this.state.searchField.toLowerCase());
+        })
         return  <div className="user-card-page">
-                    <h2>Your Cards</h2>
+                    <h2>My Cards</h2>
+                    <input type='search' onChange={this.handleChange} placeholder='Search cards' />
                     <div className="user-cards">                        
-                        {this.state.cards.map(card => <UserCard key={card.id} className="user-card" flashCard={card} deleteCard={this.deleteCard}/>)}  
+                        {filteredCards.map(card => <UserCard key={card.id} className="user-card" flashCard={card} deleteCard={this.deleteCard}/>)}  
                     </div>
                 </div>
     }

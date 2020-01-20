@@ -7,7 +7,7 @@ import './user-card.styles.css'
 class UserCard extends React.Component {
 
     constructor({flashCard, deleteCard}) {
-        super({deleteCard})
+        super()
         this.state = {
             questionError : false,
             answerError : false,
