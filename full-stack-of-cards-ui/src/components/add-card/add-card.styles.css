@@ -67,6 +67,7 @@
     width: 100%;
     border: 1px solid #ddd;
     padding: 5px;
+    font-size: 0.8em;
 }
 
 .new-card-form input.card-field {

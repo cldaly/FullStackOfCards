@@ -58,7 +58,7 @@ class UserCard extends React.Component {
     render()
     {    
         return  (
-                <div className='card'>
+                <div className='user-card'>
                     {!this.state.editing && 
                         <div>
                             <h3>Q: {this.state.flashCard.question}</h3>            
@@ -68,14 +68,14 @@ class UserCard extends React.Component {
                                     <a className='reference' target="_blank" rel='noreferrer noopener' href={this.state.flashCard.resourceLink}>More Info</a>
                                 </div>                    
                             </div> 
-                            <button id='new-btn' onClick={this.Edit}>Edit</button>
-                            <button id='new-btn' onClick={this.Remove}>Remove</button>
+                            <button id='edit-btn' onClick={this.Edit}>Edit</button>
+                            <button id='edit-btn' onClick={this.Remove}>Remove</button>
                         </div>                        
                     }
                     {this.state.editing && 
-                        <div className="new-card-form">
+                        <div className="edit-card-form">
                             <div className="form-group">
-                                <div className="new-card-header">
+                                <div className="edit-card-header">
                                     <label htmlFor="eQuestion">Question:</label>  
                                     {this.state.questionError && <span className="error">Question is required</span>}                                          
                                 </div>                            
@@ -83,7 +83,7 @@ class UserCard extends React.Component {
                             </div>
 
                             <div className="form-group">
-                                <div className="new-card-header">
+                                <div className="edit-card-header">
                                     <label htmlFor="eAnswer">Answer:</label>  
                                     {this.state.answerError && <span className="error">Answer is required</span>}                                          
                                 </div>
@@ -91,13 +91,13 @@ class UserCard extends React.Component {
                             </div>
 
                             <div className="form-group">
-                                <div className="new-card-header">
+                                <div className="edit-card-header">
                                     <label htmlFor="eResLink">Resource Link:</label>                                          
                                 </div>
                                 <input id="eResLink" className='card-field' type="text" defaultValue={this.state.flashCard.resourceLink} />
                             </div>
 
-                            <button id='new-btn' onClick={this.Save}>Save</button>
+                            <button id='edit-btn' onClick={this.Save}>Save</button>
                         </div>
                     }
                 </div>

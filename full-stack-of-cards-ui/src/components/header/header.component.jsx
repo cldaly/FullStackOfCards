@@ -9,6 +9,7 @@ const Header = ({ isLoggedIn, logout }) => {
             <h2><Link to='/cards'>Full Stack of Cards</Link></h2>
             {isLoggedIn ? (
                 <nav>
+                    <li><Link to='/user/cards'>My Cards</Link></li>
                     <li><Link to='/user/addcard'>Add Card</Link></li>
                     <li><Link to='/cards' onClick={logout}>Logout</Link></li>
                 </nav>

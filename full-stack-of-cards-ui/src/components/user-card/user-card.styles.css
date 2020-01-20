@@ -1,8 +1,16 @@
-.card {
-    padding-top: 50px;
+.user-card {
+    padding: 10px 60px 40px;
+    border: 1px solid #555;
+    border-radius: 15px;
+    color: rgb(15, 21, 27);
+    background-color: #faf3f0;
+    margin: 50px auto;
+    width: 500px;
+    text-align: center;
+    box-shadow: 10px 10px 40px rgba(0,0,0,0.08), 2px 2px 8px rgba(0,0,0,0.2);
 }
 
-.new-card {
+.edit-card {
     width: 450px;
     padding: 20px;
     border: 1px solid #555;
@@ -14,7 +22,7 @@
     box-shadow: 10px 10px 40px rgba(0,0,0,0.08), 2px 2px 8px rgba(0,0,0,0.2);
 }
 
-.new-card h4 {
+.edit-card h4 {
     font-size: 1.3em;
     font-weight: 400;
     letter-spacing: 0.05em;
@@ -25,11 +33,11 @@
     text-align: left;
 }
 
-.new-card-form {
+.edit-card-form {
     margin: 10px 40px;
 }
 
-.new-card-form .form-group {
+.edit-card-form .form-group {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -37,23 +45,23 @@
     width: 100%;
 }
 
-.new-card-form .form-group label {
+.edit-card-form .form-group label {
     padding-bottom: 5px;
     color: #333;
 }
 
-.new-card-form .card-field {
+.edit-card-form .card-field {
     resize: none;
     width: 100%;    
     border: 1px solid #ddd;
     padding: 5px;
 }
 
-.new-card-form input.card-field {
+.edit-card-form input.card-field {
     font-size: 0.8em;
 }
 
-.new-card-form .new-card-header {
+.edit-card-form .edit-card-header {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -61,12 +69,12 @@
     padding-bottom: 5px;
 }
 
-.new-card-form .error {
+.edit-card-form .error {
     color: #F00;
     font-size: 0.9em;
 }
 
-button#new-btn {
+button#edit-btn {
     cursor: pointer;
     color: #18412a;
     transition: 0.1s linear;
@@ -83,7 +91,7 @@ button#new-btn {
     transition: 0.05s linear;
 }
 
-button#new-btn:hover {
+button#edit-btn:hover {
     background-color: #b3eccc;
     color: #0c2718;
     border:1px solid #0c2718;
@@ -91,7 +99,7 @@ button#new-btn:hover {
     transform: scale(1.05)
 }
 
-button#new-btn:active {
+button#edit-btn:active {
     transform: scale(1);
 }
 
