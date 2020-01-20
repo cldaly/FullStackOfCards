@@ -1,13 +1,31 @@
 .user-card {
-    padding: 10px 60px 40px;
+    padding: 10px 40px 20px;
     border: 1px solid #555;
     border-radius: 15px;
     color: rgb(15, 21, 27);
     background-color: #faf3f0;
-    margin: 50px auto;
-    width: 500px;
-    text-align: center;
+    margin: 30px;
+    width: 400px;
+    height:fit-content;
+    text-align: left;
     box-shadow: 10px 10px 40px rgba(0,0,0,0.08), 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.user-card h3 {
+    border-bottom: 1px solid #DDD;
+    padding-bottom: 10px;
+}
+
+.user-card .card-details p{
+    width:100%;
+    word-wrap: break-word;
+}
+
+.edit-button-group {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 20px;   
 }
 
 .edit-card {
@@ -34,7 +52,7 @@
 }
 
 .edit-card-form {
-    margin: 10px 40px;
+    margin-top: 20px;
 }
 
 .edit-card-form .form-group {
@@ -74,14 +92,14 @@
     font-size: 0.9em;
 }
 
-button#edit-btn {
+.edit-button-group .edit-button  {
     cursor: pointer;
     color: #18412a;
     transition: 0.1s linear;
     background-color: #def8e9;
     border:1px solid #18412a;
     border-radius: 6px;
-    margin: 25px auto 10px;
+    margin: 5px auto 10px;
     font-size: 1.1em;
     padding: 5px 15px;
     display: flex;
@@ -91,7 +109,7 @@ button#edit-btn {
     transition: 0.05s linear;
 }
 
-button#edit-btn:hover {
+.edit-button-group .edit-button:hover {
     background-color: #b3eccc;
     color: #0c2718;
     border:1px solid #0c2718;
@@ -99,9 +117,40 @@ button#edit-btn:hover {
     transform: scale(1.05)
 }
 
-button#edit-btn:active {
+.edit-button-group .edit-button:active {
     transform: scale(1);
 }
+
+
+.edit-button-group .delete-button  {
+    cursor: pointer;
+    color: #411818;
+    transition: 0.1s linear;
+    background-color: #f8dede;
+    border:1px solid #411818;
+    border-radius: 6px;
+    margin: 5px auto 10px;
+    font-size: 1.1em;
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.05s linear;
+}
+
+.edit-button-group .delete-button:hover {
+    background-color: #ecb3b3;
+    color: #270c0c;
+    border:1px solid #270c0c;
+    transform: translateY(2px);
+    transform: scale(1.05)
+}
+
+.edit-button-group .delete-button:active {
+    transform: scale(1);
+}
+
 
 .loading {
     display: inline-block;

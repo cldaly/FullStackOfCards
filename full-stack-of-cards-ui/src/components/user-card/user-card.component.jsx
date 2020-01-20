@@ -6,23 +6,20 @@ import './user-card.styles.css'
 
 class UserCard extends React.Component {
 
-    constructor({flashCard}) {
-        super()
+    constructor({flashCard, deleteCard}) {
+        super({deleteCard})
         this.state = {
             questionError : false,
             answerError : false,
             flashCard : flashCard,            
-            editing: false
+            editing: false,
+            deleteCard : deleteCard
         }
     }
 
     Edit = () => {
         //this.state.editing = true;
         this.setState({editing : true}) 
-    }
-
-    Remove = () => {
-        Axios.delete('http://localhost:8080/flashcards/removeCard/'+ this.state.flashCard.id)
     }
 
     Save = () => {
@@ -50,8 +47,8 @@ class UserCard extends React.Component {
         newCard.id = this.state.flashCard.id
         
         Axios.put('http://localhost:8080/flashcards/updateCard', newCard)
-        this.setState({flashCard : newCard})
 
+        this.setState({flashCard : newCard})
         this.setState({editing : false})
     }
 
@@ -60,7 +57,7 @@ class UserCard extends React.Component {
         return  (
                 <div className='user-card'>
                     {!this.state.editing && 
-                        <div>
+                        <div className='user-card-content'>
                             <h3>Q: {this.state.flashCard.question}</h3>            
                             <div className="card-details">
                                 <p>A: {this.state.flashCard.answer}</p>
@@ -68,8 +65,10 @@ class UserCard extends React.Component {
                                     <a className='reference' target="_blank" rel='noreferrer noopener' href={this.state.flashCard.resourceLink}>More Info</a>
                                 </div>                    
                             </div> 
-                            <button id='edit-btn' onClick={this.Edit}>Edit</button>
-                            <button id='edit-btn' onClick={this.Remove}>Remove</button>
+                            <div className="edit-button-group">
+                                <button className="edit-button" style={{float:"left"}} onClick={this.Edit}>Edit</button>
+                                <button className="edit-button delete-button" style={{float:"right"}} onClick={() => this.state.deleteCard(this.state.flashCard.id)}>Remove</button>
+                            </div>
                         </div>                        
                     }
                     {this.state.editing && 
@@ -79,7 +78,7 @@ class UserCard extends React.Component {
                                     <label htmlFor="eQuestion">Question:</label>  
                                     {this.state.questionError && <span className="error">Question is required</span>}                                          
                                 </div>                            
-                                <textarea id="eQuestion" className='card-field' type="text" defaultValue={this.state.flashCard.question} />
+                                <textarea id="eQuestion" rows={2} className='card-field' type="text" defaultValue={this.state.flashCard.question} />
                             </div>
 
                             <div className="form-group">
@@ -87,7 +86,7 @@ class UserCard extends React.Component {
                                     <label htmlFor="eAnswer">Answer:</label>  
                                     {this.state.answerError && <span className="error">Answer is required</span>}                                          
                                 </div>
-                                <textarea id="eAnswer" className='card-field' type="text" defaultValue={this.state.flashCard.answer}/>
+                                <textarea id="eAnswer" rows={4} className='card-field' type="text" defaultValue={this.state.flashCard.answer}/>
                             </div>
 
                             <div className="form-group">
@@ -97,7 +96,9 @@ class UserCard extends React.Component {
                                 <input id="eResLink" className='card-field' type="text" defaultValue={this.state.flashCard.resourceLink} />
                             </div>
 
-                            <button id='edit-btn' onClick={this.Save}>Save</button>
+                            <div className="edit-button-group">
+                                <button className="edit-button" onClick={this.Save}>Save</button>
+                            </div>
                         </div>
                     }
                 </div>
