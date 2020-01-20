@@ -1,0 +1,116 @@
+.card {
+    padding-top: 50px;
+}
+
+.new-card {
+    width: 450px;
+    padding: 20px;
+    border: 1px solid #555;
+    border-radius: 15px;
+    color: rgb(15, 21, 27);
+    background-color: #faf3f0;
+    margin: 15vh auto 20px;
+    text-align: center;
+    box-shadow: 10px 10px 40px rgba(0,0,0,0.08), 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.new-card h4 {
+    font-size: 1.3em;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin: 10px 40px 20px;
+    padding-bottom: 10px;
+    color: #555;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+.new-card-form {
+    margin: 10px 40px;
+}
+
+.new-card-form .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.new-card-form .form-group label {
+    padding-bottom: 5px;
+    color: #333;
+}
+
+.new-card-form .card-field {
+    resize: none;
+    width: 100%;    
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+.new-card-form input.card-field {
+    font-size: 0.8em;
+}
+
+.new-card-form .new-card-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 5px;
+}
+
+.new-card-form .error {
+    color: #F00;
+    font-size: 0.9em;
+}
+
+button#new-btn {
+    cursor: pointer;
+    color: #18412a;
+    transition: 0.1s linear;
+    background-color: #def8e9;
+    border:1px solid #18412a;
+    border-radius: 6px;
+    margin: 25px auto 10px;
+    font-size: 1.1em;
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.05s linear;
+}
+
+button#new-btn:hover {
+    background-color: #b3eccc;
+    color: #0c2718;
+    border:1px solid #0c2718;
+    transform: translateY(2px);
+    transform: scale(1.05)
+}
+
+button#new-btn:active {
+    transform: scale(1);
+}
+
+.loading {
+    display: inline-block;
+    margin-right: 10px;
+    width: 12px;
+    height: 12px;
+    border: 4px solid rgba(72, 95, 81, 0.75);
+    border-radius: 50%;
+    border-top-color: rgba(255, 255, 255,.75);
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+    box-sizing: unset;
+}
+
+@keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+}

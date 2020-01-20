@@ -59,7 +59,7 @@ class AddCard extends React.Component {
                 }
                 <div className="new-card">
                     <h4>Add a new flash card</h4>
-                    <div className="new-card-form">
+                    <div    >
                         <div className="form-group">
                             <div className='new-card-header'>
                                 <label htmlFor="question">Question *</label>

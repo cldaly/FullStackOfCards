@@ -15,7 +15,7 @@ class UserCards extends React.Component
 
     componentDidMount(){
         Axios.get('http://localhost:8080/flashcards/getCards')
-        .then(data => {
+        .then(data => {            
             return JSON.parse(data.request.response);
         })
         .then(cards => {
@@ -27,7 +27,7 @@ class UserCards extends React.Component
 
     render() {        
         return  <div className="user-cards">
-                    {this.state.cards.map(card => <UserCard className="user-card" flashCard={card}/>)}  
+                    {this.state.cards.map(card => <UserCard key={card.id} className="user-card" flashCard={card}/>)}  
                 </div>
     }
 }

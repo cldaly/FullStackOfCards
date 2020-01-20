@@ -15,9 +15,15 @@ public class FlashCardService {
 	@Autowired
 	FlashCardRepository flashCardRepo;
 	
+//	Adds a flash card to the database. Can also be used to update? If given the same id.
+	public FlashCard updateFlashCard(FlashCard flashCard)
+	{			
+		return flashCardRepo.save(flashCard);
+	}
+	
 	//	Adds a flash card to the database. Can also be used to update? If given the same id.
 	public FlashCard addFlashCard(FlashCard flashCard)
-	{
+	{	
 		return flashCardRepo.insert(flashCard);
 	}
 	
