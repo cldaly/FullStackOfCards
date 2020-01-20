@@ -59,7 +59,7 @@ class AddCard extends React.Component {
                 }
                 <div className="new-card">
                     <h4>Add a new flash card</h4>
-                    <div    >
+                    <div className='new-card-form'>
                         <div className="form-group">
                             <div className='new-card-header'>
                                 <label htmlFor="question">Question *</label>
@@ -72,15 +72,17 @@ class AddCard extends React.Component {
                                 <label htmlFor="answer">Answer *</label>
                                 {(answer === '' || answer === undefined) && submitted  && <span className="error">Answer is required</span>}
                             </div>
-                            <textarea maxLength={400} rows={3} className='card-field' value={answer} onChange={this.handleAnswer} />
+                            <textarea maxLength={400} rows={4} className='card-field' value={answer} onChange={this.handleAnswer} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="resourceLink">Link to resource</label>
+                            <div className='new-card-header'>
+                                <label htmlFor="resourceLink">Link to resource</label>
+                            </div>
                             <input type='text' className='card-field' value={link} onChange={this.handleLink} />
                         </div>
                         <button id='new-btn' onClick={this.validateCard}>
                             {loading && <span className="loading"></span>}
-                            <span>Submit Question</span>
+                            <span>Submit Card</span>
                         </button>
                     </div>
                 </div>
