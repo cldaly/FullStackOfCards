@@ -20,7 +20,7 @@ class UserCards extends React.Component
 
     getCards = () => {
         console.log("Gettin New Cards");
-        Axios.get('http://localhost:8080/flashcards/getUserCards', localStorage.getItem('user-id'))
+        Axios.get('http://localhost:8080/flashcards/getUserCards', {params: {userId : localStorage.getItem('user-id')}})
         .then(data => {            
             return JSON.parse(data.request.response);
         })
