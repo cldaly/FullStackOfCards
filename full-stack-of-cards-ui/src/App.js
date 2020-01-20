@@ -6,9 +6,6 @@ import Header from './components/header/header.component';
 import Cards from './components/cards/cards.component';
 import UserPage from './user-page/user-page.component';
 
-// Testing User-Card
-import UserCards from './user-cards/user-cards.component';
-
 class App extends React.Component {
     constructor(){
         super();
@@ -19,8 +16,6 @@ class App extends React.Component {
     render() {
         return (
         <div className='main'>
-            <UserCards />
-
             <Header />
             <Switch>
                 <Route exact path='/'>
