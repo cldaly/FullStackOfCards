@@ -36,7 +36,7 @@ public class UserController {
 		return null;		
 	}
 	
-	@GetMapping("/login")
+	@PostMapping("/login")
 	@ResponseBody
 	public ResponseEntity<User> login(@RequestBody User user)
 	{

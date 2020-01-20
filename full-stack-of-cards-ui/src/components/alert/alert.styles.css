@@ -1,5 +1,5 @@
 .error-alert {
-    padding: 5px 15px;
+    padding: 10px 20px;
     margin: 15px auto -10px;
     border: 1px solid #9e0000;
     background-color: #ffd1d1;
@@ -20,4 +20,6 @@
 .error-alert .close {
     margin-right:-5px;
     cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 300;
 }

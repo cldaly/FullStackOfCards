@@ -7,14 +7,8 @@ class Login extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            usernameError: {
-                status:false,
-                message:''
-            },
-            passwordError: {
-                status:false,
-                message:''
-            },
+            usernameError: { status:false, message:'' },
+            passwordError: { status:false, message:'' },
             submitted: false,
             errorMessage: '',
             loading: false
@@ -50,7 +44,9 @@ class Login extends React.Component {
             .then(data => {
                 return JSON.parse(data.request.response);
             }).then(user => {
-                console.log(user)
+                if (user) {
+                    this.props.completeLogin(user.id);
+                }
             }).catch(() => {
                 this.setState({errorMessage:'Invalid Username or Password', loading:false })
             })
@@ -63,18 +59,23 @@ class Login extends React.Component {
         const {usernameError, passwordError, submitted, loading, errorMessage} = this.state;
         return(
             <div className='login'>
-                <h2>Welcome to Musix App</h2>
                 {errorMessage !== '' && <Alert message={errorMessage} closeAlert={this.closeAlert} />}
                 <div className='login-page'>
                     <h4>Login</h4>
-                    <div className="loginForm" autoComplete='off' noValidate>
+                    <div className="loginForm">
                         <div className='form-group'>
                             <label htmlFor='username'>Username</label>
-                            <input id='username' type='text' />
+                            <div className='input'>
+                                <input  autoComplete='off' id='username' type='text' />
+                                {(usernameError.status && submitted) && <span className='error'>{usernameError.message}</span>}
+                            </div>
                         </div>
                         <div className='form-group'>
                             <label htmlFor='password'>Password</label>
-                            <input id='password' type='password' />
+                            <div className="input">
+                                <input  id='password' type='password' />
+                                {(passwordError.status && submitted) && <span className='error'>{passwordError.message}</span>}
+                            </div>
                         </div>
                         <button id='login-btn' onClick={this.validate}>
                             {loading && <span className="loading"></span>}
@@ -86,15 +87,5 @@ class Login extends React.Component {
         )
     }
 }
-class User {
-    userId;
-    email;
-    profileImg;
-    constructor(email){
-        this.email = email;
-        this.token = undefined;
-    }
-}
-
 
 export default Login;
