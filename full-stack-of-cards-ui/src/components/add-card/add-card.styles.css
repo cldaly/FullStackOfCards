@@ -1,3 +1,28 @@
+.new-card-page {
+    margin-top: 15vh;
+}
+
+.message {
+    width: 450px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #29303D;
+    background-color: #c7f7cb;
+    border-radius: 15px;
+}
+
+.message h4 {
+    font-weight: 400;
+    margin: 0;
+}
+
+.message .close {
+    cursor: pointer;
+    font-weight: 300;
+}
+
 .new-card {
     width: 450px;
     padding: 20px;
@@ -5,7 +30,7 @@
     border-radius: 15px;
     color: rgb(15, 21, 27);
     background-color: #faf3f0;
-    margin: 15vh auto 20px;
+    margin: 20px auto 20px;
     text-align: center;
     box-shadow: 10px 10px 40px rgba(0,0,0,0.08), 2px 2px 8px rgba(0,0,0,0.2);
 }

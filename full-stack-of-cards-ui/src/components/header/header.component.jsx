@@ -15,6 +15,7 @@ const Header = ({ isLoggedIn, logout }) => {
             ) : (
                 <nav>
                     <li><Link to='/user/login'>Login</Link></li>
+                    <li><Link to='/user/register'>Register</Link></li>
                 </nav>
             )}
         </div>

@@ -11,7 +11,7 @@ const FlashCard = ({flashCard, show, next}) => {
             <div className="card-details">
                 <p>{flashCard.answer}</p>
                 <div className="card-actions">
-                    <a className='reference' target="_blank" rel='noreferrer noopener' href={flashCard.resourceLink}>{flashCard.resourceName}</a>
+                    <a className='reference' target="_blank" rel='noreferrer noopener' href={flashCard.resourceLink}>More info.</a>
                     <button onClick={next} className="next">Next Card</button>
                 </div>
                 
