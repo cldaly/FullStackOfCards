@@ -8,19 +8,31 @@ class AddCard extends React.Component {
                 loading:false
             }
         }
+
+
+        validateCard = () => {
+
+        }
+
         render() {
-            const { loading } = this.state;
+            const { loading, questionError, answerError } = this.state;
             return (
                 <div className="new-card">
                     <h4>Add a new flash card</h4>
                     <div className="new-card-form">
                         <div className="form-group">
-                            <label htmlFor="question">Question</label>
-                            <textarea maxLength={200} rows={3} className='card-field' id='question' />
+                            <div className='new-card-header'>
+                                <label htmlFor="question">Question</label>
+                                {questionError && <span className="error">Question is required</span>}
+                            </div>
+                            <textarea maxLength={100} rows={2} className='card-field' id='question' />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="answer">Answer</label>
-                            <textarea maxLength={200} rows={3} className='card-field' id='answer' />
+                            <div className='new-card-header'>
+                                <label htmlFor="answer">Answer</label>
+                                {answerError && <span className="error">Answer is required</span>}
+                            </div>
+                            <textarea maxLength={250} rows={3} className='card-field' id='answer' />
                         </div>
                         <div className="form-group">
                             <label htmlFor="resourceLink">Link to resource</label>
@@ -30,7 +42,7 @@ class AddCard extends React.Component {
                             <label htmlFor="resourceName">Name for link</label>
                             <input type='text' className='card-field' id='resourceName' />
                         </div>
-                        <button id='new-btn'>
+                        <button id='new-btn' onClick={this.validateCard}>
                             {loading && <span className="loading"></span>}
                             <span>Submit Question</span>
                         </button>

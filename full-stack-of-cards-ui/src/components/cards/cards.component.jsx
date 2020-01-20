@@ -2,6 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import { Card } from '../../models/Card';
 import FlashCard from '../flash-card/flash-card.component';
+import './cards.styles.css';
 
 class Cards extends React.Component {
     constructor(props) {
@@ -15,6 +16,11 @@ class Cards extends React.Component {
     }
 
     componentDidMount(){
+        if (this.props.fadein) {
+            document.getElementsByClassName('cards')[0].classList.add('fadein');
+        } else {
+            document.getElementsByClassName('cards')[0].classList.remove('fadein');
+        }
         Axios.get('http://localhost:8080/flashcards/getCards')
         .then(data => {
             return JSON.parse(data.request.response);

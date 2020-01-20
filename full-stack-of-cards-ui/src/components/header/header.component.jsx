@@ -6,11 +6,11 @@ const Header = ({ isLoggedIn, logout }) => {
 
     return (
         <div className="header">
-            <h2><Link to='/'>Full Stack of Cards</Link></h2>
+            <h2><Link to='/cards'>Full Stack of Cards</Link></h2>
             {isLoggedIn ? (
                 <nav>
                     <li><Link to='/user/addcard'>Add Card</Link></li>
-                    <li><Link to='/' onClick={logout}>Logout</Link></li>
+                    <li><Link to='/cards' onClick={logout}>Logout</Link></li>
                 </nav>
             ) : (
                 <nav>

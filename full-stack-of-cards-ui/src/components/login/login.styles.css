@@ -1,5 +1,5 @@
 .login {
-    margin-top: 50px;
+    margin-top: 15vh;
 }
 
 .login-page .loginForm {
@@ -34,24 +34,39 @@
     width: 70%;
     height: 60px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .login-page .form-group label {
     font-size: 1.1em;
     width: 30%;
     text-align: right;
+    padding-top: 5px;
     padding-right: 10px;
 }
 
 .login-page .form-group input {
-    width: 70%;
     padding: 5px;
     font-size: 0.9em;
+    width: 100%;
 }
 
 .login-page .form-group input:focus {
     outline: none;
+}
+
+.loginForm .error {
+    color: #F00;
+    font-size: 0.9em;
+}
+
+.loginForm .input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 62px;
+    width: 70%;
 }
 
 button#login-btn {

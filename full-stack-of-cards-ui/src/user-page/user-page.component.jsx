@@ -10,18 +10,18 @@ const UserPage = ({isLoggedIn, completeLogin}) => (
                 {!isLoggedIn ? (
                     <Login completeLogin={completeLogin} />
                 ) : (
-                    <Redirect to={{ pathname: "/" }}/>
+                    <Redirect to={{ pathname: "/cards" }}/>
                 )}
             </Route>
             <Route exact path='/user/addcard'>
                 {isLoggedIn ? (
                     <AddCard completeLogin={completeLogin} />
                 ) : (
-                    <Redirect to={{ pathname: "/" }}/>
+                    <Redirect to={{ pathname: "/cards" }}/>
                 )}
             </Route>
             <Route exact path='*'>
-                <Redirect to={{ pathname: "/" }}/>
+                <Redirect to={{ pathname: "/cards" }}/>
             </Route>
         </Switch>
     </div>
