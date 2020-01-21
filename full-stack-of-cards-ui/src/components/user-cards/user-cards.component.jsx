@@ -45,7 +45,8 @@ class UserCards extends React.Component
 
     render() {        
         let filteredCards = this.state.cards.filter(card => {
-            return card.question.toLowerCase().includes(this.state.searchField.toLowerCase());
+            return card.question.toLowerCase().includes(this.state.searchField.toLowerCase()) || card.answer.toLowerCase().includes(this.state.searchField.toLowerCase());;
+            
         })
         return  <div className="user-card-page">
                     <h2>My Cards</h2>

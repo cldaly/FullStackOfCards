@@ -62,7 +62,11 @@ class UserCard extends React.Component {
                             <div className="card-details">
                                 <p>A: {this.state.flashCard.answer}</p>
                                 <div className="card-actions">
-                                    <a className='reference' target="_blank" rel='noreferrer noopener' href={this.state.flashCard.resourceLink}>More Info</a>
+                                {(this.state.flashCard.resourceLink && this.state.flashCard.resourceLink !== '' && this.state.flashCard.resourceLink !== undefined) ?
+                                    (<a className='reference' target="_blank" rel='noreferrer noopener' href={this.state.flashCard.resourceLink}>More info.</a>)
+                                : (
+                                    <a className='reference' target="_blank" rel='noreferrer noopener' href='https://www.javatpoint.com/'>More info.</a>
+                                )}
                                 </div>                    
                             </div> 
                             <div className="edit-button-group">
