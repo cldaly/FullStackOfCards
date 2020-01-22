@@ -20,7 +20,7 @@ import com.cards.fullstack.service.UserService;
 import java.util.*;
 
 @RestController
-@CrossOrigin(origins="https://nervous-lewin-2f8507.netlify.com", maxAge = 3600)
+@CrossOrigin(origins="https://full-stack-of-cards.netlify.com", maxAge = 3600)
 @RequestMapping("/api/users")
 public class UserController {
 	
