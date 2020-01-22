@@ -32,7 +32,7 @@ class AddCard extends React.Component {
                 resourceLink:this.state.link,
                 userId:localStorage.getItem('user-id')
             }
-            Axios.post('http://localhost:8080/api/flashcards/addCard', card)
+            Axios.post('https://full-stack-cards-backend.herokuapp.com/api/flashcards/addCard', card)
             .then(()=>{
                 this.setState({question:'', answer:'', link:'', message: 'Flash card has been added!', loading:false, submitted:false})
             }).catch(err => {

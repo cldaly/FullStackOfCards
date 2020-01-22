@@ -21,7 +21,7 @@ class Cards extends React.Component {
         } else {
             document.getElementsByClassName('cards')[0].classList.remove('fadein');
         }
-        Axios.get('http://localhost:8080/api/flashcards/getCards')
+        Axios.get('https://full-stack-cards-backend.herokuapp.com/api/flashcards/getCards')
         .then(data => {
             return JSON.parse(data.request.response);
         })
