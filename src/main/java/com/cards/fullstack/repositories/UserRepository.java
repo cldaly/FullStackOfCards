@@ -2,11 +2,13 @@ package com.cards.fullstack.repositories;
 
 import java.util.List;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.cards.fullstack.models.User;
 
-public interface UserRepository extends MongoRepository<User, String> {
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
 
 	public User findByUsernameAndPassword(String username, String password);
 	

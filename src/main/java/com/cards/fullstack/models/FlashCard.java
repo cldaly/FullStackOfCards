@@ -1,38 +1,46 @@
 package com.cards.fullstack.models;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Document(collection="flashcards")
+
+@Entity
+@Table(name="flashcards")
 public class FlashCard {
 	
 	@Id
-	private String id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	private String question;
 	private String answer;
 	private String resourceLink;
 		
-	private String userId;
+	private Long userId;
 	
-	public FlashCard(String question, String answer, String resourceLink, String userId) {
+	public FlashCard(String question, String answer, String resourceLink, Long userId) {
 		this.question = question;
 		this.answer = answer;
 		this.resourceLink = resourceLink;
 		this.userId = userId;
 	}
 	
-	public String getUserId() {
+	public FlashCard() { }
+	
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getQuestion() {

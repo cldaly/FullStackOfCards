@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cards.fullstack.service.FlashCardService;
@@ -21,15 +20,14 @@ import com.cards.fullstack.models.FlashCard;
 import java.util.*;
 
 @RestController
-@CrossOrigin (origins = "http://localhost:3000")
-@RequestMapping("/flashcards")
+@CrossOrigin (origins = "http://localhost:3000", maxAge = 3600)
+@RequestMapping("/api/flashcards")
 public class FlashCardController {
 
 	@Autowired
-	FlashCardService flashCardService;
+	private FlashCardService flashCardService;
 	
 	@GetMapping("/getCards")
-	@ResponseBody
 	public ResponseEntity<List<FlashCard>> getCards()
 	{
 		return new ResponseEntity<List<FlashCard>>(flashCardService.getAllFlashCards(), HttpStatus.OK);
@@ -50,16 +48,16 @@ public class FlashCardController {
 	}
 	
 	@GetMapping("/getUserCards")
-	public ResponseEntity<List<FlashCard>> getUserCards(@RequestParam("userId") String userId)
+	public ResponseEntity<List<FlashCard>> getUserCards(@RequestParam("userId") Long userId)
 	{
 		return new ResponseEntity<List<FlashCard>>(flashCardService.getFlashCardsByUserId(userId), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/removeCard/{id}")
-	public ResponseEntity removeCard(@PathVariable String id)
+	public ResponseEntity<?> removeCard(@PathVariable Long id)
 	{
 		flashCardService.removeFlashCard(id);
-		return new ResponseEntity(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 }

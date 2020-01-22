@@ -20,8 +20,8 @@ import com.cards.fullstack.service.UserService;
 import java.util.*;
 
 @RestController
-@CrossOrigin(origins="http://localhost:3000")
-@RequestMapping("/users")
+@CrossOrigin(origins="http://localhost:3000", maxAge = 3600)
+@RequestMapping("/api/users")
 public class UserController {
 	
 	@Autowired

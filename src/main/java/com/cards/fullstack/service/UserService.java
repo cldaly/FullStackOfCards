@@ -24,7 +24,7 @@ public class UserService {
 	{
 		String hashPass = BCrypt.hashpw(password, BCrypt.gensalt());
 		User user = new User(username, hashPass);
-		return userRepository.insert(user);
+		return userRepository.save(user);
 	}
 	
 	public List<User> getAllUserByName(String username)

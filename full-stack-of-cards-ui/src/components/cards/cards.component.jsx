@@ -21,7 +21,7 @@ class Cards extends React.Component {
         } else {
             document.getElementsByClassName('cards')[0].classList.remove('fadein');
         }
-        Axios.get('http://localhost:8080/flashcards/getCards')
+        Axios.get('http://localhost:8080/api/flashcards/getCards')
         .then(data => {
             return JSON.parse(data.request.response);
         })
@@ -36,9 +36,13 @@ class Cards extends React.Component {
 
     pickCard = () => {
         let card = new Card();
-        do {
-            card = this.state.cards[Math.floor(Math.random()*this.state.cards.length)];
-        } while (this.state.finishedCards.includes(card.id));
+        if (this.state.cards.length > 0) {
+            do {
+                card = this.state.cards[Math.floor(Math.random()*this.state.cards.length)];
+            } while (this.state.finishedCards.includes(card.id));
+        } else {
+            card = new Card(0,'No Flash Cards Avalable', 'Please try again later, or not. Do you, boo',null)
+        }
         card.showAnswer = false;
         this.setState({flashCard:card, status:'done'});
     }

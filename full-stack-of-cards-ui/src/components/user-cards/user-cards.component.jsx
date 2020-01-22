@@ -21,7 +21,7 @@ class UserCards extends React.Component
 
     getCards = () => {
         console.log("Gettin New Cards");
-        Axios.get('http://localhost:8080/flashcards/getUserCards', {params: {userId : localStorage.getItem('user-id')}})
+        Axios.get('http://localhost:8080/api/flashcards/getUserCards', {params: {userId : localStorage.getItem('user-id')}})
         .then(data => {            
             return JSON.parse(data.request.response);
         })
@@ -34,7 +34,7 @@ class UserCards extends React.Component
     }
     
     deleteCard = (id) => {
-        Axios.delete('http://localhost:8080/flashcards/removeCard/'+ id).then(data => this.getCards());
+        Axios.delete('http://localhost:8080/api/flashcards/removeCard/'+ id).then(data => this.getCards());
         
         //this.setState({count : this.state.count - 1})
     }

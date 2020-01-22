@@ -13,7 +13,7 @@ import com.cards.fullstack.repositories.FlashCardRepository;
 public class FlashCardService {
 
 	@Autowired
-	FlashCardRepository flashCardRepo;
+	private FlashCardRepository flashCardRepo;
 	
 //	Adds a flash card to the database. Can also be used to update? If given the same id.
 	public FlashCard updateFlashCard(FlashCard flashCard)
@@ -24,11 +24,11 @@ public class FlashCardService {
 	//	Adds a flash card to the database. Can also be used to update? If given the same id.
 	public FlashCard addFlashCard(FlashCard flashCard)
 	{	
-		return flashCardRepo.insert(flashCard);
+		return flashCardRepo.save(flashCard);
 	}
 	
 	//	Removes a flash card by id from the database
-	public void removeFlashCard(String id)
+	public void removeFlashCard(Long id)
 	{
 		flashCardRepo.deleteById(id);
 	}
@@ -39,7 +39,7 @@ public class FlashCardService {
 		return flashCardRepo.findAll();
 	}
 	
-	public List<FlashCard> getFlashCardsByUserId(String userId)
+	public List<FlashCard> getFlashCardsByUserId(Long userId)
 	{
 		return flashCardRepo.findByUserId(userId);
 	}
