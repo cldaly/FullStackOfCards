@@ -1,26 +1,20 @@
 package com.cards.fullstack.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-
-@Entity
-@Table(name="flashcards")
+@Document(collection="flashcards")
 public class FlashCard {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private String id;
 	private String question;
 	private String answer;
 	private String resourceLink;
 		
-	private Long userId;
+	private String userId;
 	
-	public FlashCard(String question, String answer, String resourceLink, Long userId) {
+	public FlashCard(String question, String answer, String resourceLink, String userId) {
 		this.question = question;
 		this.answer = answer;
 		this.resourceLink = resourceLink;
@@ -29,18 +23,18 @@ public class FlashCard {
 	
 	public FlashCard() { }
 	
-	public Long getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Long userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getQuestion() {
@@ -61,6 +55,5 @@ public class FlashCard {
 	public void setResourceLink(String resourceLink) {
 		this.resourceLink = resourceLink;
 	}
-	
 	
 }

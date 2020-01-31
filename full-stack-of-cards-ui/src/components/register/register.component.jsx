@@ -51,7 +51,7 @@ class Register extends React.Component {
 
     registerUser = (username, password) => {
         this.setState({loading: true}, () => {
-            Axios.post('https://full-stack-cards-backend.herokuapp.com/api/users/register',{username, password})
+            Axios.post('http://localhost:8080/api/users/register',{username, password})
             .then(data => {
                 if (data.request.response === '') {
                     this.setState({errorMessage: 'Sorry, that username is taken', loading:false})

@@ -28,7 +28,7 @@ public class FlashCardService {
 	}
 	
 	//	Removes a flash card by id from the database
-	public void removeFlashCard(Long id)
+	public void removeFlashCard(String id)
 	{
 		flashCardRepo.deleteById(id);
 	}

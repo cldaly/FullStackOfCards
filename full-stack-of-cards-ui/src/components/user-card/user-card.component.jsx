@@ -46,7 +46,7 @@ class UserCard extends React.Component {
         newCard.resourceLink = link
         newCard.id = this.state.flashCard.id
         
-        Axios.put('https://full-stack-cards-backend.herokuapp.com/api/flashcards/updateCard', newCard)
+        Axios.put('http://localhost:8080/api/flashcards/updateCard', newCard)
 
         this.setState({flashCard : newCard})
         this.setState({editing : false})

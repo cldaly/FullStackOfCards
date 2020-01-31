@@ -20,7 +20,7 @@ import com.cards.fullstack.models.FlashCard;
 import java.util.*;
 
 @RestController
-@CrossOrigin (origins = "https://full-stack-of-cards.netlify.com", maxAge = 3600)
+@CrossOrigin (origins = "http://localhost:3000", maxAge = 3600)
 @RequestMapping("/api/flashcards")
 public class FlashCardController {
 
@@ -54,7 +54,7 @@ public class FlashCardController {
 	}
 	
 	@DeleteMapping("/removeCard/{id}")
-	public ResponseEntity<?> removeCard(@PathVariable Long id)
+	public ResponseEntity<?> removeCard(@PathVariable String id)
 	{
 		flashCardService.removeFlashCard(id);
 		return new ResponseEntity<>(HttpStatus.OK);
